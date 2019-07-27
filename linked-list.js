@@ -1,4 +1,4 @@
-class Node {
+class LinkedListNode {
 	constructor(value, next = null) {
 		this.value = value;
 		this.next = next;
@@ -13,10 +13,10 @@ class Node {
 	}
 }
 
-let first = new Node(3);
-let middle = new Node(5);
+let first = new LinkedListNode(3);
+let middle = new LinkedListNode(5);
 first.next = middle;
-let last = new Node(7);
+let last = new LinkedListNode(7);
 middle.next = last;
 
 const printList = (node) => {
@@ -26,4 +26,4 @@ const printList = (node) => {
 	}
 }
 
-printList(first)
+printList(first);
