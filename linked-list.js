@@ -27,7 +27,18 @@ class LinkedList {
 	}
 
 	clear() {}
-	contains(item) {}
+	contains(item) {
+		let current = this.head;
+		while (current !== null) {
+			if (current.value === item) {
+				return true;
+			}
+
+			current = current.next;
+		}
+
+		return false
+	}
 	remove(item) {
 		let previous = new LinkedListNode(null);
 		let current = this.head;
@@ -83,6 +94,8 @@ const printList = (linkedList) => {
 	}
 }
 
+// tests
+
 let linkedList = new LinkedList();
 linkedList.add(1);
 linkedList.add(2);
@@ -96,3 +109,7 @@ printList(linkedList);
 linkedList.remove(2);
 console.log(linkedList.count)
 printList(linkedList);
+
+console.log(linkedList.contains(1))
+console.log(linkedList.contains(5))
+console.log(linkedList.contains(7))
