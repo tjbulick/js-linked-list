@@ -5,14 +5,6 @@ class LinkedListNode {
 	}
 }
 
-const printList = (linkedList) => {
-	let node = linkedList.head;
-	while (node !== null) {
-		console.log(`data: ${node.value}, next: ${node.next}`);
-		node = node.next;
-	}
-}
-
 class LinkedList {
 	constructor(head = null, tail = null, count = 0, isReadOnly = false) {
 		this.head = head;
@@ -36,13 +28,71 @@ class LinkedList {
 
 	clear() {}
 	contains(item) {}
-	remove(item) {}
+	remove(item) {
+		let previous = new LinkedListNode(null);
+		let current = this.head;
+
+		// 1: Пустой список: ничего не делать
+    	// 2: Один элемент: установить Previous = null
+    	// 3: Несколько элементов:
+    	//    a: Удаляемый элемент первый
+    	//    b: Удаляемый элемент в середине или конце
+
+    	while (current !== null) {
+    		if (current.value === item) {
+    			
+    			// Узел в середине или в конце
+    			if (previous !== null) {
+    				
+    				// Случай 3b
+    				previous.next = current.next;
+
+    				// Если в конце, то меняем this.tail
+    				if (current.next === null) {
+    					this.tail = previous;
+    				}
+    			} else {
+    				// Случай 2 или 3a
+
+    				this.head = head.next;
+
+    				// Список теперь пустой?
+    				if (this.head === null) {
+    					this.tail = null;
+    				}
+    			}
+
+    			this.count--;
+
+    			return true
+    		}
+
+    		previous = current;
+    		current = current.next;
+    	}
+
+    	return false
+	}
+}
+
+const printList = (linkedList) => {
+	let node = linkedList.head;
+	while (node !== null) {
+		console.log(`data: ${node.value}, next: ${node.next}`);
+		node = node.next;
+	}
 }
 
 let linkedList = new LinkedList();
 linkedList.add(1);
 linkedList.add(2);
-linkedList.add(5);
+linkedList.add(2);
 linkedList.add(7);
+console.log(linkedList.count)
+printList(linkedList);
+linkedList.remove(2);
+console.log(linkedList.count)
+printList(linkedList);
+linkedList.remove(2);
 console.log(linkedList.count)
 printList(linkedList);
