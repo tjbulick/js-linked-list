@@ -29,9 +29,26 @@ const printList = (node) => {
 printList(first);
 
 class LinkedList {
-	constructor(count = 0, isReadOnly = false) {}
+	constructor(head = null, tail = null, count = 0, isReadOnly = false) {
+		this.head = head;
+		this.tail = tail;
+		this.count = 0;
+		this.isReadOnly = isReadOnly;
 
-	add(item) {}
+	}
+
+	add(item) {
+		const node = new LinkedListNode(item);
+		if (this.head === null) {
+			this.head = node;
+			this.tail = node;
+		} else {
+			this.tail.next = node;
+			this.tail.node;
+		}
+		this.count++
+	}
+
 	clear() {}
 	contains(item) {}
 	remove(item) {}
