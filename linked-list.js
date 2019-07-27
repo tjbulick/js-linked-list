@@ -26,7 +26,11 @@ class LinkedList {
 		this.count++
 	}
 
-	clear() {}
+	clear() {
+		this.head = null;
+		this.tail = null;
+		this.count = 0;
+	}
 	contains(item) {
 		let current = this.head;
 		while (current !== null) {
@@ -113,3 +117,8 @@ printList(linkedList);
 console.log(linkedList.contains(1))
 console.log(linkedList.contains(5))
 console.log(linkedList.contains(7))
+
+linkedList.clear();
+
+console.log(linkedList.count)
+printList(linkedList)
