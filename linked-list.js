@@ -27,3 +27,12 @@ const printList = (node) => {
 }
 
 printList(first);
+
+class LinkedList {
+	constructor(count = 0, isReadOnly = false) {}
+
+	add(item) {}
+	clear() {}
+	contains(item) {}
+	remove(item) {}
+}
