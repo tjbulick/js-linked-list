@@ -3,30 +3,14 @@ class LinkedListNode {
 		this.value = value;
 		this.next = next;
 	}
-
-	getValue() {
-		return this.value
-	}
-
-	setValue(value) {
-		this.value = value
-	}
 }
-
-let first = new LinkedListNode(3);
-let middle = new LinkedListNode(5);
-first.next = middle;
-let last = new LinkedListNode(7);
-middle.next = last;
 
 const printList = (node) => {
 	while (node !== null) {
-		console.log(node.value, node.next);
+		console.log(`data: ${node.value}, next: ${node.next}`);
 		node = node.next;
 	}
 }
-
-printList(first);
 
 class LinkedList {
 	constructor(head = null, tail = null, count = 0, isReadOnly = false) {
@@ -53,3 +37,7 @@ class LinkedList {
 	contains(item) {}
 	remove(item) {}
 }
+
+let linkedList = new LinkedList();
+linkedList.add(1);
+printList(linkedList.head);
