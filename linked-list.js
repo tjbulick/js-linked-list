@@ -5,7 +5,8 @@ class LinkedListNode {
 	}
 }
 
-const printList = (node) => {
+const printList = (linkedList) => {
+	let node = linkedList.head;
 	while (node !== null) {
 		console.log(`data: ${node.value}, next: ${node.next}`);
 		node = node.next;
@@ -16,7 +17,7 @@ class LinkedList {
 	constructor(head = null, tail = null, count = 0, isReadOnly = false) {
 		this.head = head;
 		this.tail = tail;
-		this.count = 0;
+		this.count = count;
 		this.isReadOnly = isReadOnly;
 
 	}
@@ -28,7 +29,7 @@ class LinkedList {
 			this.tail = node;
 		} else {
 			this.tail.next = node;
-			this.tail.node;
+			this.tail = node;
 		}
 		this.count++
 	}
@@ -40,4 +41,8 @@ class LinkedList {
 
 let linkedList = new LinkedList();
 linkedList.add(1);
-printList(linkedList.head);
+linkedList.add(2);
+linkedList.add(5);
+linkedList.add(7);
+console.log(linkedList.count)
+printList(linkedList);
