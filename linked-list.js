@@ -11,7 +11,24 @@ class LinkedList {
 		this.tail = tail;
 		this.count = count;
 		this.isReadOnly = isReadOnly;
+		this[Symbol.iterator] = () => {
+			let current = this.head;
 
+			return {
+				next() {
+					if (current !== null) {
+						return {
+							value: current.value,
+							done: false
+						}
+					} else {
+						return {
+							done: true
+						}
+					}
+				}
+			}
+		};
 	}
 
 	add(item) {
@@ -31,6 +48,7 @@ class LinkedList {
 		this.tail = null;
 		this.count = 0;
 	}
+
 	contains(item) {
 		let current = this.head;
 		while (current !== null) {
@@ -43,6 +61,7 @@ class LinkedList {
 
 		return false
 	}
+
 	remove(item) {
 		let previous = new LinkedListNode(null);
 		let current = this.head;
@@ -122,3 +141,8 @@ linkedList.clear();
 
 console.log(linkedList.count)
 printList(linkedList)
+
+linkedList.add(1);
+linkedList.add(2);
+linkedList.add(2);
+linkedList.add(7);
