@@ -11,7 +11,33 @@ class LinkedList {
 		this.tail = tail;
 		this.count = count;
 		this.isReadOnly = isReadOnly;
+		// this[Symbol.iterator] = () => {
+		// 	return this
+		// };
+	}
 
+	[Symbol.iterator]() {
+		return this
+	}
+
+	next() {
+		if (this.current === undefined) {
+			this.current = this.head;
+		}
+
+		if (this.current !== null) {
+			let data = this.current.value;
+			this.current = this.current.next;
+			return {
+				value: data,
+				done: false
+			}
+		} else {
+			delete this.current;
+			return {
+				done: true
+			}
+		}
 	}
 
 	add(item) {
@@ -31,6 +57,7 @@ class LinkedList {
 		this.tail = null;
 		this.count = 0;
 	}
+
 	contains(item) {
 		let current = this.head;
 		while (current !== null) {
@@ -43,6 +70,7 @@ class LinkedList {
 
 		return false
 	}
+
 	remove(item) {
 		let previous = new LinkedListNode(null);
 		let current = this.head;
@@ -122,3 +150,17 @@ linkedList.clear();
 
 console.log(linkedList.count)
 printList(linkedList)
+
+linkedList.add(1);
+linkedList.add(2);
+linkedList.add(2);
+linkedList.add(7);
+
+// for (item of linkedList) {
+// 	console.log(item)
+// }
+
+console.log(linkedList[Symbol.iterator]().next())
+console.log(linkedList[Symbol.iterator]().next())
+console.log(linkedList[Symbol.iterator]().next())
+console.log(linkedList[Symbol.iterator]().next())
