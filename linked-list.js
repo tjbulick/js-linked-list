@@ -1,11 +1,6 @@
-class LinkedListNode {
-	constructor(value, next = null) {
-		this.value = value;
-		this.next = next;
-	}
-}
+const LinkedListNode = require('./linked-list-node.js');
 
-class LinkedList {
+module.exports = class LinkedList {
 	constructor(head = null, tail = null, count = 0, isReadOnly = false) {
 		this.head = head;
 		this.tail = tail;
