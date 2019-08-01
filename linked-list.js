@@ -1,11 +1,6 @@
-class LinkedListNode {
-	constructor(value, next = null) {
-		this.value = value;
-		this.next = next;
-	}
-}
+const LinkedListNode = require('./linked-list-node.js');
 
-class LinkedList {
+module.exports = class LinkedList {
 	constructor(head = null, tail = null, count = 0, isReadOnly = false) {
 		this.head = head;
 		this.tail = tail;
@@ -110,26 +105,4 @@ class LinkedList {
 
     	return false
 	}
-}
-
-const printList = (linkedList) => {
-	let node = linkedList.head;
-	while (node !== null) {
-		console.log(`data: ${node.value}, next: ${node.next}`);
-		node = node.next;
-	}
-}
-
-// tests
-
-let linkedList = new LinkedList();
-linkedList.add(1);
-linkedList.add(2);
-linkedList.add(2);
-linkedList.add(7);
-
-// for-of loop works fine!
-
-for (const data of linkedList) {
-	console.log(data)
 }
