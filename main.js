@@ -1,4 +1,4 @@
-import {LinkedListNode} from './linked-list-node.js';
+const LinkedList = require('./linked-list.js');
 
 const printList = (linkedList) => {
 	let node = linkedList.head;
