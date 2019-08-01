@@ -11,31 +11,25 @@ class LinkedList {
 		this.tail = tail;
 		this.count = count;
 		this.isReadOnly = isReadOnly;
-		// this[Symbol.iterator] = () => {
-		// 	return this
-		// };
 	}
 
 	[Symbol.iterator]() {
-		return this
-	}
+		let current = this.head;
 
-	next() {
-		if (this.current === undefined) {
-			this.current = this.head;
-		}
-
-		if (this.current !== null) {
-			let data = this.current.value;
-			this.current = this.current.next;
-			return {
-				value: data,
-				done: false
-			}
-		} else {
-			delete this.current;
-			return {
-				done: true
+		return {
+			next() {
+				if (current !== null) {
+					const data = current.value;
+					current = current.next;
+					return {
+						value: data,
+						done: false
+					}
+				} else {
+					return {
+						done: true
+					}
+				}
 			}
 		}
 	}
@@ -133,34 +127,9 @@ linkedList.add(1);
 linkedList.add(2);
 linkedList.add(2);
 linkedList.add(7);
-console.log(linkedList.count)
-printList(linkedList);
-linkedList.remove(2);
-console.log(linkedList.count)
-printList(linkedList);
-linkedList.remove(2);
-console.log(linkedList.count)
-printList(linkedList);
 
-console.log(linkedList.contains(1))
-console.log(linkedList.contains(5))
-console.log(linkedList.contains(7))
+// for-of loop works fine!
 
-linkedList.clear();
-
-console.log(linkedList.count)
-printList(linkedList)
-
-linkedList.add(1);
-linkedList.add(2);
-linkedList.add(2);
-linkedList.add(7);
-
-// for (item of linkedList) {
-// 	console.log(item)
-// }
-
-console.log(linkedList[Symbol.iterator]().next())
-console.log(linkedList[Symbol.iterator]().next())
-console.log(linkedList[Symbol.iterator]().next())
-console.log(linkedList[Symbol.iterator]().next())
+for (const data of linkedList) {
+	console.log(data)
+}
