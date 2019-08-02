@@ -1,4 +1,4 @@
-const SinglyLinkedList = require('./singly-linked-list');
+const SinglyLinkedList = require('./singly-linked-list.js');
 
 const printList = (linkedList) => {
 	let node = linkedList.head;
