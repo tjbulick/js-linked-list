@@ -10,15 +10,15 @@ const printList = (linkedList) => {
 
 // tests
 
-let linkedList = new SinglyLinkedList();
-linkedList.add(1);
-linkedList.add(2);
-linkedList.add(2);
-linkedList.add(7);
+let singly = new SinglyLinkedList();
+singly.add(1);
+singly.add(2);
+singly.add(2);
+singly.add(7);
 
 // for-of loop works fine!
 
-for (const data of linkedList) {
+for (const data of singly) {
 	console.log(data)
 }
 
