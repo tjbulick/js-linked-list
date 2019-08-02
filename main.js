@@ -21,3 +21,6 @@ linkedList.add(7);
 for (const data of linkedList) {
 	console.log(data)
 }
+
+// todo: read only
+// todo: think of separate types of nodes for singly- and doubly- lists to save the memory
