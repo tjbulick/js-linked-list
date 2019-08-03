@@ -14,7 +14,7 @@ module.exports = class DoublyLinkedList {
 		this.head = node;
 		this.head.next = temp;
 
-		if (count === 0) {
+		if (this.count === 0) {
 			this.tail = this.head;
 		} else {
 			temp.previous = this.head;
@@ -22,9 +22,26 @@ module.exports = class DoublyLinkedList {
 
 		this.count++;
 	}
-	addLast(item) {}
+
+	addLast(item) {
+		const node = new LinkedListNode(item);
+
+		if (this.count === 0) {
+			this.head = node;
+		} else {
+			this.tail.next = node;
+			node.previous = this.tail;
+		}
+
+		this.tail = node;
+		this.count++;
+	}
+
 	removeFirst() {}
+
 	removeLast() {}
+
 	remove(item) {}
+
 	[Symbol.iterator]() {}
 }

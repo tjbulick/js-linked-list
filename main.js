@@ -31,6 +31,9 @@ doubly.addFirst(8);
 doubly.addFirst(8);
 doubly.addFirst(4);
 doubly.addFirst(1);
+doubly.addLast(777);
+doubly.addFirst(555);
+doubly.addLast(3)
 
 printList(doubly);
 
