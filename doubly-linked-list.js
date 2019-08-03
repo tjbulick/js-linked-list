@@ -37,9 +37,33 @@ module.exports = class DoublyLinkedList {
 		this.count++;
 	}
 
-	removeFirst() {}
+	removeFirst() {
+		if (this.count !== 0) {
+			this.head = this.head.next;
 
-	removeLast() {}
+			this.count--;
+
+			if (this.count === 0) {
+				this.tail = null;
+			} else {
+				this.head.previous = null;
+			}
+		}
+	}
+
+	removeLast() {
+		if (this.count !== 0) {
+			if (this.count === 1) {
+				this.head = null;
+				this.tail = null;
+			} else {
+				this.tail.previous.next = null;
+				this.tail = this.tail.previous;
+			}
+
+			this.count--;
+		}
+	}
 
 	remove(item) {}
 
