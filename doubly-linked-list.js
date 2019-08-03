@@ -7,7 +7,21 @@ module.exports = class DoublyLinkedList {
 		this.count = count;
 	}
 
-	addFirst(item) {}
+	addFirst(item) {
+		const node = new LinkedListNode(item);
+		const temp = this.head;
+
+		this.head = node;
+		this.head.next = temp;
+
+		if (count === 0) {
+			this.tail = this.head;
+		} else {
+			temp.previous = this.head;
+		}
+
+		this.count++;
+	}
 	addLast(item) {}
 	removeFirst() {}
 	removeLast() {}
