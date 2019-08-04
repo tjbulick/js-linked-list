@@ -35,6 +35,9 @@ doubly.addLast(777);
 doubly.addFirst(555);
 doubly.addLast(3);
 doubly.removeLast();
+doubly.remove(1);
+doubly.remove(4);
+
 
 printList(doubly);
 
