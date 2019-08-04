@@ -1,4 +1,5 @@
 const SinglyLinkedList = require('./singly-linked-list.js');
+const DoublyLinkedList = require('./doubly-linked-list.js');
 
 const printList = (linkedList) => {
 	let node = linkedList.head;
@@ -10,6 +11,7 @@ const printList = (linkedList) => {
 
 // tests
 
+console.log('singly:');
 let singly = new SinglyLinkedList();
 singly.add(1);
 singly.add(2);
@@ -22,5 +24,23 @@ for (const data of singly) {
 	console.log(data)
 }
 
+console.log('doubly:');
+
+let doubly = new DoublyLinkedList();
+doubly.addFirst(8);
+doubly.addFirst(8);
+doubly.addFirst(4);
+doubly.addFirst(1);
+doubly.addLast(777);
+doubly.addFirst(555);
+doubly.addLast(3);
+doubly.removeLast();
+doubly.remove(1);
+doubly.remove(4);
+
+
+printList(doubly);
+
 // todo: read only
 // todo: think of separate types of nodes for singly- and doubly- lists to save the memory
+// todo: can we somehow get rid of a lot of "this"?
