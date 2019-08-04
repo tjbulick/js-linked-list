@@ -43,3 +43,4 @@ printList(doubly);
 
 // todo: read only
 // todo: think of separate types of nodes for singly- and doubly- lists to save the memory
+// todo: can we somehow get rid of a lot of "this"?
